@@ -38,13 +38,7 @@ nsatx-store/                  ← parent repo root
 - `nsatx-store/shopify-theme/CLAUDE.md` – Shopify theme project guidelines and AI Toolkit/Dev MCP documentation **Read only when instructed to modify Shopify theme code**
 - `nsatx-store/import-products/CLAUDE.md` – bulk product import project documentation **Read only when instructed to import products**
 
-No file here should be read unconditionally except this one — the rest are scoped to the kind of
-work actually being done, to keep session start-up cheap. Each of the 4 CLAUDE.md files (this one +
-3 submodules) ends with its own `## Changelog` — a terse, dated table of what changed and why, one
-row per session. Detailed rationale/debugging belongs in commit messages (`git log`/`git show` on
-demand), not in the changelog — keep entries to 1-3 sentences. There is no separate memory/notes
-file; each repo's own CLAUDE.md is the single source of truth for that repo's history, so a session
-only needs to read the changelog(s) of the repo(s) it's actually touching.
+No file here should be read unconditionally except this one — the rest are scoped to the kind of work actually being done, to keep session start-up cheap. Each of the 4 CLAUDE.md files (this one + 3 submodules) ends with its own `## Changelog` — a terse, dated table of what changed and why, one row per session. Detailed rationale/debugging belongs in commit messages (`git log`/`git show` on demand), not in the changelog — keep entries to 1-3 sentences. There is no separate memory/notes file; each repo's own CLAUDE.md is the single source of truth for that repo's history, so a session only needs to read the changelog(s) of the repo(s) it's actually touching.
 
 ## Working with Submodules
 
@@ -63,13 +57,56 @@ When cloning fresh:
 git clone --recurse-submodules https://github.com/LaneMelancon/nsatx-store.git
 ```
 
-## Rules
+### Git Commit Convention
+
+Follows **Conventional Commits** standard. All lowercase except proper nouns and acronyms.
+
+**Format:**
+
+```
+type(scope): short description
+```
+
+**Types:**
+
+| Type       | Usage                                  |
+| ---------- | -------------------------------------- |
+| `feat`     | New feature or section added           |
+| `fix`      | Bug fix                                |
+| `style`    | CSS/visual changes, no logic change    |
+| `refactor` | Code restructure, no behavior change   |
+| `chore`    | Config, tooling, dependency updates    |
+| `content`  | Copy, images, merchant content updates |
+| `perf`     | Performance improvement                |
+
+**`dev` commit examples — granular:**
+
+```
+feat(header): add sticky scroll behaviour with schema toggle
+fix(cart): correct quantity input on mobile drawer
+style(product): apply design system tokens to pdp layout
+refactor(snippets): extract price display into reusable snippet
+chore(settings): update settings_schema color defaults
+content(homepage): update hero headline and cta copy
+```
+
+## Global Rules
 
 - Keep this markdown file clean and well structured as the high-level project overview
 - After any session that introduces structural changes, new repos, new tooling, or completed milestones — update the relevant CLAUDE.md and add a one-line dated entry to its `## Changelog` table before closing out. Log a change in the CLAUDE.md of the repo it actually happened in (e.g. an import-products-only session logs to `import-products/CLAUDE.md`, not here) — only log here if it's cross-cutting (spans multiple submodules) or about the parent repo itself
 - Use `design-system/CLAUDE.md` and `design-system/DESIGN.md` to reference design-related information for this project
 - Use `import-products` only when instructed to import products into a Shopify store
 - Read `/shopify-theme/CLAUDE.md` **only when instructed to modify** (change, adjust, create, delete, etc.) Shopify theme related code
+
+---
+
+## About NeuroSolution ATX
+
+NeuroSolution Center of Austin is a specialized neuroclinical practice offering drug-free regenerative therapies for complex neurological conditions. Dr. Brandon Crawford's clinic combines neurorestoration science with proprietary methods.
+
+**Primary website:** `neurosolutionatx.com` **Company Context Markdown File** `NEUROSOLUTION_COMPANY.md` ('/Users/lanemelancon/Library/CloudStorage/GoogleDrive-hello@onngrid.com/My Drive/01_Clients/NeuroSolution/NeuroSolution ATX/NeuroSolution Supplement Store/00_Context/NEUROSOLUTION_COMPANY.md')
+
+---
 
 ## Changelog
 
