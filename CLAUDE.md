@@ -28,6 +28,8 @@ catalyst-store/                  ← parent repo root
 │   ├── CLAUDE.md              ← design system overview + Changelog
 │   └── DESIGN.md              ← full design system reference (tokens, type, etc.)
 ├── import-products/          ← submodule: catalyst-store-import-products (own CLAUDE.md + Changelog)
+│   ├── CLAUDE.md              ← entry point — routes to the docs below
+│   └── docs/                  ← SCHEMA.md, SHEETS.md, RUNBOOK.md, HISTORY.md (read only as needed)
 └── shopify-theme/            ← submodule: catalyst-store-shopify-theme (own CLAUDE.md + Changelog)
 ```
 
